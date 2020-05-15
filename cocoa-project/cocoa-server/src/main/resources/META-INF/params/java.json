@@ -1,0 +1,82 @@
+[
+  {
+    "name": "type",
+    "type": "STRING",
+    "description": "job type",
+    "defaultValue": "java",
+    "required": true,
+    "userSetAble": false
+  },
+  {
+    "name": "Xms",
+    "type": "STRING",
+    "description": "jvm Xms",
+    "defaultValue": "512M",
+    "required": false,
+    "userSetAble": true
+  },
+  {
+    "name": "Xmx",
+    "type": "STRING",
+    "description": "jvm Xmx",
+    "defaultValue": "1024M",
+    "required": false,
+    "userSetAble": true
+  },
+  {
+    "name": "dependencies",
+    "type": "STRING",
+    "description": "dependencies jobs",
+    "defaultValue": "",
+    "required": false,
+    "userSetAble": false
+  },
+  {
+    "name": "job.class",
+    "type": "STRING",
+    "description": "The fully qualified name of the user job class",
+    "defaultValue": "",
+    "required": true,
+    "userSetAble": true
+  },
+  {
+    "name": "classpath",
+    "type": "STRING",
+    "description": "The resources that should be on the execution classpath, accessible to the local filesystem",
+    "defaultValue": "lib/*",
+    "required": false,
+    "userSetAble": true
+  },
+  {
+    "name": "method.run",
+    "type": "STRING",
+    "description": "The run method, defaults to execute()",
+    "defaultValue": "execute",
+    "required": false,
+    "userSetAble": true
+  },
+  {
+    "name": "method.cancel",
+    "type": "STRING",
+    "description": "The cancel method, defaults to cancel()",
+    "defaultValue": "cancel",
+    "required": false,
+    "userSetAble": true
+  },
+  {
+    "name": "jvm.args",
+    "type": "STRING",
+    "description": "The -D for the new jvm process",
+    "defaultValue": "",
+    "required": false,
+    "userSetAble": true
+  },
+  {
+    "name": "user.to.proxy",
+    "type": "STRING",
+    "description": "user to proxy",
+    "defaultValue": "",
+    "required": true,
+    "userSetAble": false
+  }
+]

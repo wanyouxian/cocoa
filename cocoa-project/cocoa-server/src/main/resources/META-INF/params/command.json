@@ -1,0 +1,42 @@
+[
+  {
+    "name": "command",
+    "type": "STRING",
+    "description": "full command to exec",
+    "defaultValue": "",
+    "required": true,
+    "userSetAble": true
+  },
+  {
+    "name": "name",
+    "type": "STRING",
+    "description": "jobname",
+    "defaultValue": "",
+    "required": true,
+    "userSetAble": false
+  },
+  {
+    "name": "type",
+    "type": "STRING",
+    "description": "jobtype",
+    "defaultValue": "command",
+    "required": true,
+    "userSetAble": false
+  },
+  {
+    "name": "dependencies",
+    "type": "STRING",
+    "description": "dependencies jobs",
+    "defaultValue": "",
+    "required": false,
+    "userSetAble": false
+  },
+  {
+    "name": "user.to.proxy",
+    "type": "STRING",
+    "description": "user to proxy",
+    "defaultValue": "",
+    "required": true,
+    "userSetAble": false
+  }
+]

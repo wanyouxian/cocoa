@@ -1,0 +1,75 @@
+{
+  "name": "TestPlugin",
+  "version": "v1",
+  "jobType": "java",
+  "language": "java",
+  "pkgParams": [
+    {
+      "name": "key",
+      "description": "param key",
+      "required": true,
+      "defaultValue": "",
+      "type": "STRING"
+    },
+    {
+      "name": "param",
+      "description": "param",
+      "required": true,
+      "defaultValue": "",
+      "type": "STRING"
+    }, {
+      "name":"array",
+      "type":"ARRAY",
+      "description": "array",
+      "required": true,
+      "defaultValue": ""
+    },{
+      "name":"list",
+      "type":"ARRAY",
+      "description": "list",
+      "required": false,
+      "defaultValue": ""
+    },{
+      "name":"map",
+      "type":"MAP",
+      "description": "map",
+      "required": false,
+      "defaultValue": ""
+    }
+  ],
+  "outParams": [
+    {
+      "name": "key",
+      "type": "STRING",
+      "description": "x",
+      "required": false,
+      "defaultValue": ""
+    },
+    {
+      "name": "param",
+      "type": "INT",
+      "description": "x",
+      "required": false,
+      "defaultValue": ""
+    },
+    {
+      "name":"array",
+      "type":"ARRAY",
+      "description": "x",
+      "required": false,
+      "defaultValue": ""
+    },{
+      "name":"list",
+      "type":"ARRAY",
+      "description": "x",
+      "required": false,
+      "defaultValue": ""
+    },{
+      "name":"map",
+      "type":"MAP",
+      "description": "x",
+      "required": false,
+      "defaultValue": ""
+    }
+  ]
+}

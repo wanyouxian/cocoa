@@ -1,0 +1,30 @@
+{
+  "name": "SparkDemoPlugin",
+  "version": "v1",
+  "jobType": "spark",
+  "language": "java",
+  "pkgParams": [
+    {
+      "name": "input.file.path",
+      "description": "input file path",
+      "required": true,
+      "defaultValue": "",
+      "type": "STRING"
+    },
+    {
+      "name": "output.file.path",
+      "description": "output file path",
+      "required": true,
+      "defaultValue": "",
+      "type": "STRING"
+
+    }
+  ],
+  "outParams": [
+    {
+      "name": "a",
+      "type": "STRING",
+      "description": ""
+    }
+  ]
+}

@@ -1,0 +1,122 @@
+[
+  {
+    "name": "master",
+    "type": "STRING",
+    "description": "spark master url or yarn",
+    "defaultValue": "yarn",
+    "required": true,
+    "userSetAble": false
+  },
+  {
+    "name": "py-files",
+    "type": "STRING",
+    "description": "python files",
+    "defaultValue": "",
+    "required": true,
+    "userSetAble": true
+  },
+  {
+    "name": "driver-memory",
+    "type": "STRING",
+    "description": "spark driver memory ,512M as default",
+    "defaultValue": "512M",
+    "required": true,
+    "userSetAble": true
+  },
+  {
+    "type": "STRING",
+    "name": "executor-memory",
+    "defaultValue": "1g",
+    "required": true,
+    "description": "memory of each executor,1g as default",
+    "userSetAble": true
+  },
+  {
+    "type": "INT",
+    "name": "executor-cores",
+    "defaultValue": "1",
+    "description": "cpu cores for each executor",
+    "required": true,
+    "userSetAble": true
+  },
+  {
+    "type": "INT",
+    "name": "driver-cores",
+    "description": "cpu core for driver",
+    "defaultValue": "1",
+    "required": true,
+    "userSetAble": true
+  },
+  {
+    "type": "INT",
+    "name": "num-executors",
+    "defaultValue": "2",
+    "description": "number of executors",
+    "required": true,
+    "userSetAble": true
+  },
+  {
+    "type": "STRING",
+    "description": "spark job main jar",
+    "name": "execution-jar",
+    "defaultValue": "",
+    "required": true,
+    "userSetAble": true
+  },
+  {
+    "type": "STRING",
+    "description": "spark application extra properties,seperated with ',',such as conf.spark.serializer=org.apache.spark.serializer.KryoSerializer,to see detail at \r\nhttp://spark.apache.org/docs/latest/configuration.html#spark-properties",
+    "defaultValue": "",
+    "name": "extraProps",
+    "required": false,
+    "userSetAble": true
+  },
+  {
+    "type": "STRING",
+    "description": "command line params for the job",
+    "defaultValue": "",
+    "name": "params",
+    "required": false,
+    "userSetAble": true
+  },
+  {
+    "name": "name",
+    "type": "STRING",
+    "description": "jobname",
+    "defaultValue": "",
+    "required": true,
+    "userSetAble": false
+  },
+  {
+    "name": "type",
+    "type": "STRING",
+    "description": "jobtype",
+    "defaultValue": "spark",
+    "required": true,
+    "userSetAble": false
+  },
+  {
+    "name": "deploy-mode",
+    "type": "STRING",
+    "description": "deploy mode",
+    "defaultValue": "cluster",
+    "required": true,
+    "userSetAble": false
+  },
+  {
+    "name": "dependencies",
+    "type": "STRING",
+    "description": "dependencies jobs",
+    "defaultValue": "",
+    "required": false,
+    "userSetAble": false
+  },
+  {
+    "name": "user.to.proxy",
+    "type": "STRING",
+    "description": "user to proxy",
+    "defaultValue": "",
+    "required": true,
+    "userSetAble": false
+  }
+]
