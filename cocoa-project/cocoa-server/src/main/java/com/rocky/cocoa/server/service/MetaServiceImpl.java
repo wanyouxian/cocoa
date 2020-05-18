@@ -8,6 +8,9 @@ import com.rocky.cocoa.entity.meta.ProjectInfo;
 import com.rocky.cocoa.repository.meta.DataSourceRepository;
 import com.rocky.cocoa.repository.meta.DbInfoRepository;
 import com.rocky.cocoa.repository.meta.ProjectInfoRepository;
+import org.apache.hadoop.fs.FileSystem;
+import org.apache.hadoop.fs.Path;
+import org.apache.hadoop.hdfs.client.HdfsAdmin;
 import org.springframework.beans.factory.annotation.Value;
 import org.springframework.data.domain.Example;
 import org.springframework.data.domain.Page;
@@ -39,17 +42,18 @@ public class MetaServiceImpl implements MetaService {
     @Override
     public void createProjectInfo(ProjectInfo projectInfo) throws IOException, InterruptedException {
         //创建hdfs目录
-//        String hdfsUri = String.format("hdfs://%s", projectInfo.getNs());
-//        HadoopClient hadoopClient = new HadoopClient(proxyUser, hadoopConfPath, hiveMetaStoreUri);
-//        FileSystem fileSystem = hadoopClient.getFileSystem(null, hdfsUri);
-//        if (!fileSystem.exists(new Path(projectInfo.getBasePath()))) {
-//            fileSystem.mkdirs(new Path(projectInfo.getBasePath()));
-//        }
-//
-//        //设置hdfs配额
-//        HdfsAdmin hdfsAdmin = hadoopClient.getHdfsAdmin(hdfsUri);
-//        hdfsAdmin.setQuota(new Path(projectInfo.getBasePath()), projectInfo.getDsQuota());
-//        hdfsAdmin.setSpaceQuota(new Path(projectInfo.getBasePath()), projectInfo.getNsQuota());
+        String hdfsUri = String.format("hdfs://%s", projectInfo.getNs());
+
+        HadoopClient hadoopClient = new HadoopClient(proxyUser, hadoopConfPath, hiveMetaStoreUri);
+        FileSystem fileSystem = hadoopClient.getFileSystem(null, hdfsUri);
+        if (!fileSystem.exists(new Path(projectInfo.getBasePath()))) {
+            fileSystem.mkdirs(new Path(projectInfo.getBasePath()));
+        }
+
+        //设置hdfs配额
+        HdfsAdmin hdfsAdmin = hadoopClient.getHdfsAdmin(hdfsUri);
+        hdfsAdmin.setQuota(new Path(projectInfo.getBasePath()), projectInfo.getDsQuota());
+        hdfsAdmin.setSpaceQuota(new Path(projectInfo.getBasePath()), projectInfo.getNsQuota());
         //设置权限
         projectInfoRepository.save(projectInfo);
     }

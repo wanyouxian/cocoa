@@ -74,25 +74,25 @@
     <el-dialog title="业务线管理" :visible.sync="dialogFormVisible">
       <el-form :model="form">
         <el-form-item label="业务线名称" :label-width="formLabelWidth">
-          <el-input v-model="form.name" autocomplete="off"></el-input>
+          <el-input v-model="form.name" autocomplete="off" placeholder="test"></el-input>
         </el-form-item>
         <el-form-item label="HDFS命名空间" :label-width="formLabelWidth">
-          <el-input v-model="form.ns" autocomplete="off"></el-input>
+          <el-input v-model="form.ns" autocomplete="off" placeholder="192.168.8.100:9000"></el-input>
         </el-form-item>
         <el-form-item label="HDFS目录" :label-width="formLabelWidth">
-          <el-input v-model="form.basePath" autocomplete="off"></el-input>
+          <el-input v-model="form.basePath" autocomplete="off" placeholder="/test_dir"></el-input>
         </el-form-item>
         <el-form-item label="YARN队列" :label-width="formLabelWidth">
-          <el-input v-model="form.baseQueue" autocomplete="off"></el-input>
+          <el-input v-model="form.baseQueue" autocomplete="off" placeholder="default"></el-input>
         </el-form-item>
         <el-form-item label="空间配额(GB)" :label-width="formLabelWidth">
-          <el-input v-model="form.dsQuota" autocomplete="off"></el-input>
+          <el-input v-model="form.dsQuota" autocomplete="off" placeholder="2"></el-input>
         </el-form-item>
         <el-form-item label="文件数配额" :label-width="formLabelWidth">
-          <el-input v-model="form.nsQuota" autocomplete="off"></el-input>
+          <el-input v-model="form.nsQuota" autocomplete="off" placeholder="200"></el-input>
         </el-form-item>
         <el-form-item label="描述" :label-width="formLabelWidth">
-          <el-input v-model="form.detail" autocomplete="off"></el-input>
+          <el-input v-model="form.detail" autocomplete="off" placeholder="这是test业务线"></el-input>
         </el-form-item>
       </el-form>
       <div slot="footer" class="dialog-footer">

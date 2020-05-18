@@ -33,6 +33,15 @@
     </profiles>
 
     <dependencies>
+
+        <!-- 热加载-->
+        <dependency>
+            <groupId>org.springframework.boot</groupId>
+            <artifactId>spring-boot-devtools</artifactId>
+            <optional>true</optional>
+           <scope>true</scope>
+        </dependency>
+
         <dependency>
             <groupId>com.rocky</groupId>
             <artifactId>cocoa-entity</artifactId>
@@ -211,6 +220,17 @@
     </dependencies>
     <build>
         <plugins>
+
+            <!--热部署相关-->
+            <plugin>
+                <groupId>org.springframework.boot</groupId>
+                <artifactId>spring-boot-maven-plugin</artifactId>
+                <configuration>
+                    <fork>true</fork><!-- 如果没有该配置，热部署的devtools不生效 -->
+                </configuration>
+            </plugin>
+
+
             <plugin>
                 <groupId>org.springframework.boot</groupId>
                 <artifactId>spring-boot-maven-plugin</artifactId>

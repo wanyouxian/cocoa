@@ -34,7 +34,7 @@ custom:
     nn:
       uri: 192.168.8.100:50070
     conf: C:/Users/Rocky/Desktop/nutstore/code/cocoa/cocoa/cocoa-server/src/main/resources
-    proxyuser: hadoop
+    proxyuser: root
     hivemetastore: thrift://192.168.8.100:9083
   task:
     packageDir: C:/Users/Rocky/Desktop/nutstore/code/cocoa/cocoa/packages
