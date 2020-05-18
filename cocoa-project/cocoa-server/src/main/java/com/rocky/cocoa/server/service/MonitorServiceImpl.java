@@ -9,6 +9,7 @@ import com.rocky.cocoa.repository.cluster.YarnSummaryRepository;
 import org.springframework.stereotype.Service;
 
 import javax.annotation.Resource;
+import java.util.Date;
 import java.util.List;
 
 @Service
@@ -23,6 +24,7 @@ public class MonitorServiceImpl implements MonitorService {
 
     @Override
     public void addHdfsSummary(HdfsSummary hdfsSummary) {
+        System.err.println(hdfsSummary);
         hdfsSummaryRepository.save(hdfsSummary);
     }
 
@@ -37,27 +39,27 @@ public class MonitorServiceImpl implements MonitorService {
     }
 
     @Override
-    public HdfsSummary findHdfsSummary(int selectTime) {
+    public HdfsSummary findHdfsSummary(Date selectTime) {
         return hdfsSummaryRepository.findTop1ByIsTrashFalseAndCreateTimeLessThanEqualOrderByCreateTimeDesc(selectTime);
     }
 
     @Override
-    public YarnSummary findYarnSummary(int selectTime) {
+    public YarnSummary findYarnSummary(Date selectTime) {
         return yarnSummaryRepository.findTop1ByIsTrashFalseAndCreateTimeLessThanEqualOrderByCreateTimeDesc(selectTime);
     }
 
     @Override
-    public List<QueueMetrics> findQueueMetrics(int selectTime) {
+    public List<QueueMetrics> findQueueMetrics(Date selectTime) {
         return queueMetricsRepository.findByCreateTime(selectTime);
     }
 
     @Override
-    public List<HdfsSummary> findHdfsSummaryBetween(int startTime, int endTime) {
+    public List<HdfsSummary> findHdfsSummaryBetween(Date startTime, Date endTime) {
         return hdfsSummaryRepository.findByIsTrashFalseAndCreateTimeBetweenOrderByCreateTimeAsc(startTime,endTime);
     }
 
     @Override
-    public List<YarnSummary> findYarnSummaryBetween(int startTime, int endTime) {
+    public List<YarnSummary> findYarnSummaryBetween(Date startTime, Date endTime) {
         return yarnSummaryRepository.findByIsTrashFalseAndCreateTimeBetweenOrderByCreateTimeAsc(startTime,endTime);
     }
 }

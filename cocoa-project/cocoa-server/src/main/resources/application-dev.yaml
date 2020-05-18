@@ -20,10 +20,10 @@ spring:
     database-platform: org.hibernate.dialect.MySQL5InnoDBDialect
     show-sql: true
     hibernate:
-      ddl-auto: create
+      ddl-auto: update
   datasource:
     driver-class-name: com.mysql.cj.jdbc.Driver
-    url: jdbc:mysql://node100:3306/cocoa_dev?useUnicode=true&characterEncoding=UTF-8
+    url: jdbc:mysql://node100:3306/cocoa_dev?useUnicode=true&characterEncoding=UTF-8&serverTimezone=Asia/Shanghai
     username: root
     password: "123456"
 
@@ -60,5 +60,5 @@ custom:
     user: admin
     pwd: admin
     service:
-      hdfs: imooc_hdfs
-      hive: imooc_hive
+      hdfs: cocoa_hdfs
+      hive: cocoa_hive

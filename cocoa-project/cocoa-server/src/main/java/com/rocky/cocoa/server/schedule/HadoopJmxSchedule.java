@@ -207,6 +207,8 @@ public class HadoopJmxSchedule {
         }
         hdfsSummary.setCreateTime(new Date());
         hdfsSummary.setIsTrash(false);
+
+        System.err.println(hdfsSummary);
         return hdfsSummary;
     }
 

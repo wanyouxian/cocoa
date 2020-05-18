@@ -1,8 +1,6 @@
 package com.rocky.cocoa.entity.cluster;
 
 import com.rocky.cocoa.entity.BaseEntity;
-import com.sun.imageio.plugins.common.I18N;
-
 import lombok.Data;
 import lombok.ToString;
 
@@ -10,7 +8,7 @@ import javax.persistence.*;
 
 @Entity
 @Data
-@ToString
+@ToString(callSuper = true)
 @Table(name = "hdfs_summary")
 public class HdfsSummary extends BaseEntity {
     @Id

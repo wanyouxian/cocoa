@@ -1,6 +1,5 @@
 package com.rocky.cocoa.server.controller;
 
-import cn.hutool.core.date.DateUtil;
 import cn.hutool.json.JSONObject;
 import com.rocky.cocoa.entity.cluster.HdfsSummary;
 import com.rocky.cocoa.entity.cluster.QueueMetrics;
@@ -54,24 +53,25 @@ public class MonitorController extends BaseController {
     }
     @GetMapping(value = "/storage")
     public Object getHdfsSummary() {
-        return getResult(monitorService.findHdfsSummary(DateUtil.toIntSecond(new Date())));
+        return getResult(monitorService.findHdfsSummary(new Date()));
     }
 
     @GetMapping(value = "/calc")
     public Object getYarnSummary() {
-        return getResult(monitorService.findYarnSummary(DateUtil.toIntSecond(new Date())));
+        return getResult(monitorService.findYarnSummary(new Date()));
     }
 
     @GetMapping(value = "/storage/chart")
     public Object getHdfsSummaryList() {
         long current = System.currentTimeMillis();
         long zero = current - TimeZone.getDefault().getRawOffset();
-        List<HdfsSummary> hdfsSummaryBetween = monitorService.findHdfsSummaryBetween((int) (zero / 1000), (int) (current / 1000));
+        List<HdfsSummary> hdfsSummaryBetween = monitorService.findHdfsSummaryBetween(new Date(zero), new Date(current));
         List<String> columns = Arrays.stream(FieldUtils.getAllFields(HdfsSummary.class))
                 .map(Field::getName).collect(Collectors.toList());
         Map<String, Object> data = new HashMap<>();
         data.put("rows", hdfsSummaryBetween);
         data.put("columns", columns);
+
         return getResult(data);
     }
 
@@ -80,7 +80,7 @@ public class MonitorController extends BaseController {
         long current = System.currentTimeMillis();
         long zero = current - TimeZone.getDefault().getRawOffset();
 
-        List<YarnSummary> yarnSummaryBetween = monitorService.findYarnSummaryBetween((int) (zero/1000), (int) (current/1000));
+        List<YarnSummary> yarnSummaryBetween = monitorService.findYarnSummaryBetween(new Date(zero), new Date(current));
 
         List<String> columns = Arrays.stream(FieldUtils.getAllFields(YarnSummary.class)).map(Field::getName).collect(Collectors.toList());
 
@@ -94,7 +94,7 @@ public class MonitorController extends BaseController {
     public Object getQueueMetrics() {
         Date now = new Date();
         now.setSeconds(0);
-        List<QueueMetrics> queueMetrics = monitorService.findQueueMetrics((int)(now.getTime()/1000));
+        List<QueueMetrics> queueMetrics = monitorService.findQueueMetrics(new Date());
         List<String> columns = Arrays.stream(FieldUtils.getAllFields(QueueMetrics.class))
                 .map(Field::getName).collect(Collectors.toList());
         Map<String, Object> data = new HashMap<>();

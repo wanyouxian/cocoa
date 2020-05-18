@@ -15,5 +15,7 @@ public class Test {
         System.out.println(DateUtil.date());
         System.out.println(DateUtil.toIntSecond(new Date()));
         System.out.println(now.getTime());
+
+        System.err.println(new Date());
     }
 }

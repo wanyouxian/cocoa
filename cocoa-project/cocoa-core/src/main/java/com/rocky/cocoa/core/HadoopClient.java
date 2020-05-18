@@ -148,9 +148,9 @@ public class HadoopClient {
     }
 
     public static void main(String[] args) throws IOException, InterruptedException {
-        HadoopClient hadoopClient = new HadoopClient("hadoop","/home/jixin/imooc_3/cocoa/cocoa-server/src/main/resources","thrift://47.108.140.82:9083");
+        HadoopClient hadoopClient = new HadoopClient("hadoop","/home/jixin/cocoa_3/cocoa/cocoa-server/src/main/resources","thrift://192.168.8.100:9083");
 
-        FileSystem fileSystem = hadoopClient.getFileSystem(null, "hdfs://47.108.140.82:9000");
+        FileSystem fileSystem = hadoopClient.getFileSystem(null, "hdfs://192.168.8.100:9000");
         FileStatus[] fileStatuses = fileSystem.listStatus(new Path("/"));
         Arrays.stream(fileStatuses).forEach(fileStatus -> {
             System.out.println(fileStatus.getPath().getName());
