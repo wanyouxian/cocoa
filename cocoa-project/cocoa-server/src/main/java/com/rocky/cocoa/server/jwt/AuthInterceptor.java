@@ -60,6 +60,7 @@ public class AuthInterceptor implements HandlerInterceptor {
 
                 if (method.isAnnotationPresent(PrivilegeCheck.class)) {
                     PrivilegeCheck privilegeCheck = method.getAnnotation(PrivilegeCheck.class);
+
                     SystemPrivilege systemPrivilege = systemService.findSystemPrivilege(user.getTeam(), privilegeCheck.privilegeType());
                     if (systemPrivilege == null) {
                         throw new CocoaException("permission denied", ErrorCodes.ERROR_PERMISSION);

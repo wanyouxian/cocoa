@@ -6,6 +6,12 @@ Cocoa目前规划集群概览、运营管理、任务管理、数据查询、数
 
 
 
+## 前置环境
+
+- [Ranger安装](./docs/ranger_install.md)
+
+
+
 ## 快速开始
 
 [详见文档](./docs/quick_start.md)

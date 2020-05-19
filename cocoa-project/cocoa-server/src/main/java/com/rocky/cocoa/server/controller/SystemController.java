@@ -98,6 +98,20 @@ public class SystemController extends BaseController {
         return getResult(true);
     }
 
+    @PutMapping(value = "privilege")
+    @LoginRequired
+    @OperationRecord("更新系统权限")
+    @PrivilegeCheck(privilegeType = PrivilegeType.SYSTEM)
+    public Object updateSystemPrivilege(@RequestBody @OperationObj SystemPrivilege systemPrivilege) {
+
+        systemPrivilege.setIsTrash(false);
+        systemPrivilege.setCreateTime(new Date());
+        systemService.updateSystemPrivilege(systemPrivilege);
+        return getResult(true);
+
+    }
+
+
     @DeleteMapping(value = "privilege")
     @LoginRequired
     @OperationRecord("删除系统权限")

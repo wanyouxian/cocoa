@@ -1,5 +1,6 @@
 package com.rocky.cocoa.server.service;
 
+import cn.hutool.core.bean.BeanUtil;
 import cn.hutool.core.util.ObjectUtil;
 import cn.hutool.crypto.SecureUtil;
 import com.rocky.cocoa.entity.system.PrivilegeType;
@@ -21,6 +22,7 @@ import javax.annotation.PostConstruct;
 import javax.annotation.Resource;
 import java.util.Date;
 import java.util.List;
+import java.util.Optional;
 import java.util.stream.Collectors;
 
 @Service
@@ -182,5 +184,14 @@ public class SystemServiceImpl implements SystemService {
 
         return systemPrivilegeRepository.findAll(Example.of(systemPrivilege), PageRequest.of(page, size,
                 Sort.by(direction == null ? Direction.DESC : direction, ObjectUtil.isNull(sort) ? "id" : sort)));
+    }
+
+    @Override
+    public void updateSystemPrivilege(SystemPrivilege systemPrivilege) {
+        System.err.println(systemPrivilege);
+        Optional<SystemPrivilege> oldOptional = systemPrivilegeRepository.findById(systemPrivilege.getId());
+        SystemPrivilege oldSystemPrivilege = oldOptional.get();
+        BeanUtil.copyProperties(systemPrivilege, oldSystemPrivilege);
+        systemPrivilegeRepository.save(oldSystemPrivilege);
     }
 }

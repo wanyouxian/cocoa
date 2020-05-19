@@ -44,4 +44,6 @@ public interface SystemService {
     void delSystemPrivilege(long id);
 
     Page<SystemPrivilege> listSystemPrivileges(int page, int size, String sort, Sort.Direction direction);
+
+    void updateSystemPrivilege(SystemPrivilege systemPrivilege);
 }
